@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passport Seva Process Guide | Normal vs Tatkaal & Checklist</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <aside class="gov-disclaimer-bar">
+    <span>⚠️ <strong>Public Advisory:</strong> Independent guide. Official Passport Seva portal: <a href="https://passportindia.gov.in" target="_blank" rel="noopener">passportindia.gov.in</a>.</span>
+  </aside>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">🇮🇳</div>
+        <span>DocProcess Helper</span>
+      </a>
+      <button class="mobile-menu-btn" aria-label="Toggle navigation">☰</button>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="aadhaar.html">Aadhaar</a>
+        <a href="pan.html">PAN Card</a>
+        <a href="passport.html" class="active">Passport</a>
+        <a href="process-guide.html">Process Roadmap</a>
+        <a href="faq.html">FAQs</a>
+        <a href="chatbot.html" class="nav-cta">🤖 AI Assistant</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-area">
+    <div style="margin-bottom: 32px;">
+      <span class="hero-badge">Ministry of External Affairs Guide</span>
+      <h1 style="font-size: 2.2rem; color: var(--secondary); margin: 8px 0;">Indian Passport Seva Guide</h1>
+      <p style="color: var(--text-muted); font-size: 1.05rem;">
+        Complete instructions for Fresh & Re-issue passports, Tatkaal eligibility, Non-ECR status, and PSK appointment success.
+      </p>
+    </div>
+
+    <!-- Scheme Comparison -->
+    <div class="grid-2" style="margin-bottom: 32px;">
+      <!-- Normal Scheme -->
+      <div class="card">
+        <div class="card-icon blue">📘</div>
+        <h3 style="margin: 12px 0 6px; color: var(--secondary);">Normal Scheme</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Standard issuance with pre-police verification.</p>
+        <div style="margin: 16px 0; font-size: 0.9rem;">
+          <p><strong>Official Fee:</strong> ₹1,500 (36 pages) / ₹2,000 (60 pages)</p>
+          <p><strong>Timeline:</strong> 15 to 30 working days</p>
+          <p><strong>Documents:</strong> Standard Proof of Present Address (PoA) + Date of Birth (PoB) + Non-ECR proof</p>
+        </div>
+      </div>
+
+      <!-- Tatkaal Scheme -->
+      <div class="card" style="border: 2px solid var(--accent);">
+        <div class="card-icon orange">⚡</div>
+        <h3 style="margin: 12px 0 6px; color: var(--secondary);">Tatkaal Scheme (Urgent)</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Dispatched within 1 to 3 days. Police verification happens after dispatch.</p>
+        <div style="margin: 16px 0; font-size: 0.9rem;">
+          <p><strong>Official Fee:</strong> ₹3,500 (36 pages) / ₹4,000 (60 pages)</p>
+          <p><strong>Timeline:</strong> 1 to 3 working days</p>
+          <p><strong>Documents:</strong> <strong>3 distinct proofs</strong> from approved 16-doc list (Aadhaar + PAN + Voter ID). Zero name discrepancy permitted.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Custom Checklist Generator -->
+    <section class="tool-box">
+      <div class="tool-header">
+        <h2 class="tool-title">📋 Personalized Document Checklist Generator</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Select your applicant category to generate an exact, rejection-proof checklist for your PSK visit.
+        </p>
+      </div>
+
+      <form id="checklist-wizard-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="wizard-service">Application Target:</label>
+            <select id="wizard-service">
+              <option value="passport_fresh">Fresh Passport</option>
+              <option value="passport_reissue">Re-issue (Renewal / Page Exhaustion)</option>
+              <option value="passport_pcc">Police Clearance Certificate (PCC)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="wizard-scheme">Application Scheme:</label>
+            <select id="wizard-scheme">
+              <option value="normal">Normal Scheme (Standard)</option>
+              <option value="tatkaal">Tatkaal Scheme (Urgent)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="wizard-age">Applicant Age Group:</label>
+            <select id="wizard-age">
+              <option value="adult">Adult (18 to 50 years)</option>
+              <option value="minor">Minor (Under 18 years)</option>
+              <option value="senior">Senior Citizen (50+ years)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 24px; margin-bottom: 20px; flex-wrap: wrap;">
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.9rem;">
+            <input type="checkbox" id="wizard-has-10th" checked>
+            <span>Have 10th Class / Matriculation Certificate (for Non-ECR status)</span>
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.9rem;">
+            <input type="checkbox" id="wizard-govt">
+            <span>Central/State Govt or PSU Employee (Requires NOC/Prior Intimation)</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">
+          Generate My Custom Checklist
+        </button>
+      </form>
+
+      <!-- Checklist Output Display -->
+      <div id="checklist-output"></div>
+    </section>
+
+    <!-- PSK Navigation & Counter Tips -->
+    <section class="card" style="margin-bottom: 32px;">
+      <h3 style="color: var(--secondary); margin-bottom: 12px;">🏢 What Happens at the Passport Seva Kendra (PSK)?</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+        Arrive 15 minutes prior to your appointment time with original documents plus 2 self-attested photocopies of each proof. You will navigate three sequential counters:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+        <div style="background: #f8fafc; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius-sm);">
+          <strong style="color: var(--primary);">Counter A (TCS Staff)</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
+            Digital photograph capture, biometric fingerprint scanning, and high-resolution scanning of original documents.
+          </p>
+        </div>
+
+        <div style="background: #f8fafc; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius-sm);">
+          <strong style="color: var(--primary);">Counter B (Verification Officer)</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
+            Government officer physically inspects original documents, matches spellings, and verifies educational certificates for Non-ECR.
+          </p>
+        </div>
+
+        <div style="background: #f8fafc; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius-sm);">
+          <strong style="color: var(--primary);">Counter C (Granting Officer)</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
+            Assistant Passport Officer conducts the final interview, approves or marks for review, and grants passport issuance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2026 Aadhaar, PAN and Passport Process Helper. Free public guidance.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/checklist.js"></script>
+</body>
+</html>

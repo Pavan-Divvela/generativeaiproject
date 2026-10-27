@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Identity Process Assistant | Aadhaar, PAN & Passport</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <aside class="gov-disclaimer-bar">
+    <span>⚠️ <strong>Public Advisory:</strong> AI advice is grounded on official circulars. Always confirm with designated government officers at physical centers.</span>
+  </aside>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">🇮🇳</div>
+        <span>DocProcess Helper</span>
+      </a>
+      <button class="mobile-menu-btn" aria-label="Toggle navigation">☰</button>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="aadhaar.html">Aadhaar</a>
+        <a href="pan.html">PAN Card</a>
+        <a href="passport.html">Passport</a>
+        <a href="process-guide.html">Process Roadmap</a>
+        <a href="faq.html">FAQs</a>
+        <a href="chatbot.html" class="nav-cta active">🤖 AI Assistant</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-area">
+    <div class="chat-window">
+      <!-- Chat Header -->
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">🤖</div>
+          <div>
+            <h2 style="font-size: 1.1rem; font-weight: 700;">Identity Process AI Assistant</h2>
+            <span style="font-size: 0.8rem; color: #bbf7d0; display: flex; align-items: center; gap: 4px;">
+              ● Powered by Google Gemini & Official RAG Knowledge Base
+            </span>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-outline" onclick="location.reload()" style="background: rgba(255,255,255,0.15); border: none; color: white; padding: 6px 12px; font-size: 0.8rem;">
+            🔄 Clear Chat
+          </button>
+        </div>
+      </div>
+
+      <!-- Chat Messages Container -->
+      <div id="chat-messages" class="chat-messages">
+        <!-- Initial Bot Welcome Message -->
+        <div class="message-bubble bot">
+          <h4 style="color: #1e3a8a; margin-bottom: 6px;">Namaste! How can I assist you today?</h4>
+          <p>I am your specialized assistant for Indian identity documents. You can ask me about:</p>
+          <ul style="margin: 8px 0 0 20px;">
+            <li>Resolving PAN-Aadhaar linking failures & ₹1,000 late fee challan</li>
+            <li>Tatkaal vs Normal Passport document requirements</li>
+            <li>Fixing name or date of birth mismatches across documents</li>
+            <li>Childhood mandatory biometric updates (Ages 5 and 15)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Contextual Suggestion Chips -->
+      <div id="chat-suggestions" class="suggestion-chips">
+        <!-- Loaded dynamically via chatbot.js -->
+      </div>
+
+      <!-- Input Bar -->
+      <form id="chat-form" class="chat-input-bar">
+        <input type="text" id="chat-input" placeholder="Type your query (e.g., 'What documents are required for a Tatkaal passport?')..." required autocomplete="off">
+        <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">Send</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2026 Aadhaar, PAN and Passport Process Helper. Free public guidance.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/chatbot.js"></script>
+</body>
+</html>

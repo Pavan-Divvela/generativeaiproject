@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aadhaar, PAN and Passport Process Helper | Citizen Guide</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <!-- Official Advisory Disclaimer -->
+  <aside class="gov-disclaimer-bar">
+    <span>⚠️ <strong>Public Advisory:</strong> This is an independent assistance guide to help citizens avoid application rejections. Not an official government entity. Always submit official applications directly on <a href="https://uidai.gov.in" target="_blank" rel="noopener">uidai.gov.in</a>, <a href="https://incometax.gov.in" target="_blank" rel="noopener">incometax.gov.in</a>, or <a href="https://passportindia.gov.in" target="_blank" rel="noopener">passportindia.gov.in</a>.</span>
+  </aside>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">🇮🇳</div>
+        <span>DocProcess Helper</span>
+      </a>
+
+      <button class="mobile-menu-btn" aria-label="Toggle navigation">☰</button>
+
+      <nav class="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="aadhaar.html">Aadhaar</a>
+        <a href="pan.html">PAN Card</a>
+        <a href="passport.html">Passport</a>
+        <a href="process-guide.html">Process Roadmap</a>
+        <a href="faq.html">FAQs</a>
+        <a href="chatbot.html" class="nav-cta">🤖 AI Assistant</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="content-area">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-badge">✨ Smart Citizen Assistance Platform</div>
+      <h1 class="hero-title">Aadhaar, PAN & Passport Process Helper</h1>
+      <p class="hero-subtitle">
+        Eliminate application rejections, mismatched names, and wasted center appointments. 
+        Get step-by-step guidance, personalized document checklists, and cross-document discrepancy diagnosis.
+      </p>
+      <div class="hero-actions">
+        <a href="#mismatch-tool" class="btn btn-accent">🔍 Check Name Mismatch</a>
+        <a href="chatbot.html" class="btn btn-primary">💬 Ask AI Assistant</a>
+        <a href="process-guide.html" class="btn btn-outline">🗺️ View Golden Order Roadmap</a>
+      </div>
+    </section>
+
+    <!-- Core 3 Services Overview Cards -->
+    <section class="grid-3">
+      <!-- Aadhaar Card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon blue">🆔</div>
+          <h2 class="card-title">Aadhaar Services</h2>
+        </div>
+        <div class="card-body">
+          <p>The universal biometric foundation. Learn about demographic corrections, mandatory updates for children at ages 5 & 15, and PVC cards.</p>
+          <div class="pill-list">
+            <span class="pill">UIDAI Portal</span>
+            <span class="pill">Demographics</span>
+            <span class="pill">Biometric MBU</span>
+            <span class="pill">Masked e-Aadhaar</span>
+          </div>
+          <a href="aadhaar.html" class="btn btn-outline" style="width: 100%;">Explore Aadhaar Guide →</a>
+        </div>
+      </div>
+
+      <!-- PAN Card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon orange">💳</div>
+          <h2 class="card-title">PAN Card Services</h2>
+        </div>
+        <div class="card-body">
+          <p>Permanent Account Number for tax and banking. Instant free e-PAN, PAN-Aadhaar linking resolution, and Form 49A corrections.</p>
+          <div class="pill-list">
+            <span class="pill">Instant e-PAN (Free)</span>
+            <span class="pill">PAN-Aadhaar Link</span>
+            <span class="pill">Minor Head 500</span>
+            <span class="pill">Protean/NSDL</span>
+          </div>
+          <a href="pan.html" class="btn btn-outline" style="width: 100%;">Explore PAN Guide →</a>
+        </div>
+      </div>
+
+      <!-- Passport Card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon emerald">🛂</div>
+          <h2 class="card-title">Passport Seva</h2>
+        </div>
+        <div class="card-body">
+          <p>Ministry of External Affairs services. Normal vs. Tatkaal schemes, Non-ECR qualification rules, and Police Verification readiness.</p>
+          <div class="pill-list">
+            <span class="pill">Normal vs Tatkaal</span>
+            <span class="pill">Non-ECR Matrix</span>
+            <span class="pill">PSK Counter Guide</span>
+            <span class="pill">Police Verification</span>
+          </div>
+          <a href="passport.html" class="btn btn-outline" style="width: 100%;">Explore Passport Guide →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-Document Discrepancy Analyzer Tool -->
+    <section id="mismatch-tool" class="tool-box">
+      <div class="tool-header">
+        <h2 class="tool-title">⚡ Cross-Document Name & DoB Mismatch Analyzer</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Over 65% of passport rejections and PAN-Aadhaar linking failures happen because of minor spelling or birthdate differences. Enter your details below to check for potential blockers before applying.
+        </p>
+      </div>
+
+      <form id="mismatch-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="input-10th-name">Name on 10th Certificate / Birth Cert (Anchor):</label>
+            <input type="text" id="input-10th-name" placeholder="e.g., RAMESH KUMAR SHARMA" required>
+          </div>
+          <div class="form-group">
+            <label for="input-10th-dob">Date of Birth on 10th / Birth Cert:</label>
+            <input type="date" id="input-10th-dob">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="input-aadhaar-name">Name on Current Aadhaar Card:</label>
+            <input type="text" id="input-aadhaar-name" placeholder="e.g., R. K. SHARMA or RAMESH SHARMA" required>
+          </div>
+          <div class="form-group">
+            <label for="input-aadhaar-dob">Date of Birth on Aadhaar Card:</label>
+            <input type="date" id="input-aadhaar-dob">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="input-pan-name">Name on Current PAN Card (Optional if not yet created):</label>
+            <input type="text" id="input-pan-name" placeholder="e.g., RAMESH KUMAR SHARMA">
+          </div>
+          <div class="form-group">
+            <label for="input-pan-dob">Date of Birth on PAN Card:</label>
+            <input type="date" id="input-pan-dob">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-accent" style="width: 100%; padding: 12px; font-size: 1rem;">
+          Run Discrepancy Check & Generate Legal Roadmap
+        </button>
+      </form>
+
+      <!-- Results Box -->
+      <div id="mismatch-result" class="diagnosis-container"></div>
+    </section>
+
+    <!-- Why Us / Value Proposition -->
+    <section class="grid-2">
+      <div class="card">
+        <h3 style="color: var(--secondary); margin-bottom: 12px;">🛡️ The Golden Order Sequence</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+          Never apply for a Passport or link PAN-Aadhaar without verifying that your root document matches.
+          Our tested 4-step sequence ensures you never pay double fees or encounter rejected appointments at Passport Seva Kendras.
+        </p>
+        <a href="process-guide.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Read the complete Golden Order guide →</a>
+      </div>
+
+      <div class="card">
+        <h3 style="color: var(--secondary); margin-bottom: 12px;">💬 Grounded AI Knowledge Assistant</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+          Have questions about the ₹1,000 late fee challan under Minor Head 500, Tatkaal 3-document proof requirements, or single-name issues?
+          Chat with our specialized RAG assistant grounded on official gazettes and UIDAI regulations.
+        </p>
+        <a href="chatbot.html" style="color: var(--primary); font-weight: 600; text-decoration: none;">Start interactive consultation →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4 style="color: white;">DocProcess Helper</h4>
+        <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.6;">
+          An independent citizen initiative designed to streamline identity workflows, document verification, and government appointments in India.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Service Guides</h4>
+        <ul>
+          <li><a href="aadhaar.html">Aadhaar Enrollment & Updates</a></li>
+          <li><a href="pan.html">PAN Allotment & Linking</a></li>
+          <li><a href="passport.html">Passport Seva & Tatkaal</a></li>
+          <li><a href="process-guide.html">Name Mismatch Roadmap</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Tools & Help</h4>
+        <ul>
+          <li><a href="#mismatch-tool">Mismatch Analyzer</a></li>
+          <li><a href="chatbot.html">AI Process Assistant</a></li>
+          <li><a href="faq.html">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Official Portals</h4>
+        <ul>
+          <li><a href="https://uidai.gov.in" target="_blank" rel="noopener">UIDAI Official</a></li>
+          <li><a href="https://incometax.gov.in" target="_blank" rel="noopener">Income Tax e-Filing</a></li>
+          <li><a href="https://passportindia.gov.in" target="_blank" rel="noopener">Passport Seva MEA</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Aadhaar, PAN and Passport Process Helper. Free, open public resource.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

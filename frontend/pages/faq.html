@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions | Aadhaar, PAN & Passport Helper</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <aside class="gov-disclaimer-bar">
+    <span>⚠️ <strong>Public Advisory:</strong> Answers derived from official gazette notifications and circulars.</span>
+  </aside>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">🇮🇳</div>
+        <span>DocProcess Helper</span>
+      </a>
+      <button class="mobile-menu-btn" aria-label="Toggle navigation">☰</button>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="aadhaar.html">Aadhaar</a>
+        <a href="pan.html">PAN Card</a>
+        <a href="passport.html">Passport</a>
+        <a href="process-guide.html">Process Roadmap</a>
+        <a href="faq.html" class="active">FAQs</a>
+        <a href="chatbot.html" class="nav-cta">🤖 AI Assistant</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-area">
+    <div style="margin-bottom: 32px; text-align: center;">
+      <span class="hero-badge">Knowledge Hub</span>
+      <h1 style="font-size: 2.2rem; color: var(--secondary); margin: 8px 0;">Frequently Asked Questions</h1>
+      <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto;">
+        Clear answers to the most perplexing document hurdles, linking errors, and appointment rules.
+      </p>
+
+      <!-- Search Input -->
+      <div style="max-width: 500px; margin: 24px auto 0;">
+        <input type="text" id="faq-search-input" placeholder="🔍 Search FAQs (e.g. 1000 challan, Tatkaal, rent agreement, Non-ECR)..." style="width: 100%; padding: 12px 18px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.95rem;">
+      </div>
+    </div>
+
+    <!-- Category Pills -->
+    <div style="display: flex; justify-content: center; gap: 8px; margin-bottom: 24px; flex-wrap: wrap;">
+      <button class="chip-btn" onclick="filterFaqCategory('')">All Questions</button>
+      <button class="chip-btn" onclick="filterFaqCategory('linking')">PAN-Aadhaar Linking</button>
+      <button class="chip-btn" onclick="filterFaqCategory('passport')">Passport & Tatkaal</button>
+      <button class="chip-btn" onclick="filterFaqCategory('aadhaar')">Aadhaar Updates</button>
+      <button class="chip-btn" onclick="filterFaqCategory('pan')">PAN Card</button>
+    </div>
+
+    <!-- Accordion Container -->
+    <div id="faq-accordion-container" style="max-width: 860px; margin: 0 auto 40px;">
+      <!-- Populated dynamically via JS -->
+      <p style="text-align: center; color: var(--text-muted);">Loading official FAQs...</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>© 2026 Aadhaar, PAN and Passport Process Helper. Free public guidance.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    let allFaqs = [];
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      await fetchFaqs();
+      initFaqSearch();
+    });
+
+    async function fetchFaqs(category = "", query = "") {
+      const container = document.getElementById("faq-accordion-container");
+      try {
+        let url = `${API_BASE}/api/faqs`;
+        const params = new URLSearchParams();
+        if (category) params.append("category", category);
+        if (query) params.append("q", query);
+        if (params.toString()) url += `?${params.toString()}`;
+
+        const res = await fetch(url);
+        const json = await res.json();
+        allFaqs = json.data || [];
+        renderFaqList(allFaqs, container);
+      } catch (err) {
+        console.warn("Using offline FAQ data fallback:", err);
+        renderOfflineFaqs(container);
+      }
+    }
+
+    function renderFaqList(faqs, container) {
+      if (!faqs || faqs.length === 0) {
+        container.innerHTML = `<p style="text-align: center; color: var(--text-muted); padding: 24px;">No matching FAQs found. Try asking our <a href="chatbot.html" style="color: var(--primary);">AI Assistant</a>.</p>`;
+        return;
+      }
+
+      container.innerHTML = faqs.map((faq, idx) => `
+        <div class="accordion-item" id="faq-item-${idx}">
+          <button class="accordion-title" onclick="toggleFaq(${idx})">
+            <span>${faq.question}</span>
+            <span style="font-size: 1.2rem; color: var(--text-muted);">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>${faq.answer}</p>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function toggleFaq(idx) {
+      const item = document.getElementById(`faq-item-${idx}`);
+      if (item) {
+        const isActive = item.classList.contains("active");
+        document.querySelectorAll(".accordion-item").forEach(el => el.classList.remove("active"));
+        if (!isActive) item.classList.add("active");
+      }
+    }
+
+    function filterFaqCategory(cat) {
+      fetchFaqs(cat, document.getElementById("faq-search-input").value);
+    }
+
+    function initFaqSearch() {
+      const input = document.getElementById("faq-search-input");
+      if (!input) return;
+      let debounceTimer;
+      input.addEventListener("input", (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          fetchFaqs("", e.target.value);
+        }, 300);
+      });
+    }
+
+    function renderOfflineFaqs(container) {
+      const staticFaqs = [
+        {
+          question: "Why is my PAN-Aadhaar linking failing with a demographic mismatch error?",
+          answer: "PAN-Aadhaar linking fails when Name, Date of Birth, or Gender differs between UIDAI and Income Tax records. If your name has an expanded initial on PAN but an initial on Aadhaar, or your birth year differs, the automated validation will fail. Update the incorrect document first according to your 10th marksheet."
+        },
+        {
+          question: "Do I still need to pay ₹1,000 to link PAN with Aadhaar?",
+          answer: "Yes. Under Section 234H of the Income Tax Act, linking requires a non-refundable late fee of ₹1,000 paid under Minor Head 500 (Fee) and Major Head 0021 on the Protean e-Pay Tax portal."
+        },
+        {
+          question: "What is Non-ECR in Passport and do I qualify?",
+          answer: "Non-ECR means you do not need emigration clearance to travel abroad for work. Anyone who has passed the 10th standard (Matriculation) or holds higher educational qualifications qualifies."
+        }
+      ];
+      renderFaqList(staticFaqs, container);
+    }
+  </script>
+</body>
+</html>

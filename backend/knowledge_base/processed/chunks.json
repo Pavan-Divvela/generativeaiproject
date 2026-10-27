@@ -1,0 +1,170 @@
+[
+  {
+    "id": "aadhaar_guidelines_1",
+    "document": "aadhaar_guidelines",
+    "title": "UIDAI Aadhaar Comprehensive Guidelines & Rules",
+    "content": "# UIDAI Aadhaar Comprehensive Guidelines & Rules",
+    "body": "UIDAI Aadhaar Comprehensive Guidelines & Rules"
+  },
+  {
+    "id": "aadhaar_guidelines_2",
+    "document": "aadhaar_guidelines",
+    "title": "1. Enrollment Overview",
+    "content": "## 1. Enrollment Overview\nAadhaar is a 12-digit unique random identification number issued by the Unique Identification Authority of India (UIDAI). Aadhaar enrollment is completely free of charge. Every resident Indian citizen, regardless of age, can enroll.",
+    "body": "Aadhaar is a 12-digit unique random identification number issued by the Unique Identification Authority of India (UIDAI). Aadhaar enrollment is completely free of charge. Every resident Indian citizen, regardless of age, can enroll."
+  },
+  {
+    "id": "aadhaar_guidelines_3",
+    "document": "aadhaar_guidelines",
+    "title": "2. Enrollment Procedure",
+    "content": "## 2. Enrollment Procedure\n* **Biometrics Required:** For applicants aged 5 years and above, ten fingerprints, both iris scans, and a facial photograph are captured.\n* **Mandatory Biometric Updates (MBU):**\n  * Children must update biometrics upon reaching **Age 5** and **Age 15**.\n  * Both mandatory updates (Age 5 and Age 15) are **100% FREE** of cost at all Aadhaar centers.\n* **Adult Biometrics:** Required if biometrics are failing during authentication (e.g. fingerprint wear in manual labor or elderly citizens). Fee is ₹100.",
+    "body": "* **Biometrics Required:** For applicants aged 5 years and above, ten fingerprints, both iris scans, and a facial photograph are captured.\n* **Mandatory Biometric Updates (MBU):**\n  * Children must update biometrics upon reaching **Age 5** and **Age 15**.\n  * Both mandatory updates (Age 5 and Age 15) are **100% FREE** of cost at all Aadhaar centers.\n* **Adult Biometrics:** Required if biometrics are failing during authentication (e.g. fingerprint wear in manual labor or elderly citizens). Fee is ₹100."
+  },
+  {
+    "id": "aadhaar_guidelines_4",
+    "document": "aadhaar_guidelines",
+    "title": "3. Demographic Updates & Lifetime Limits",
+    "content": "## 3. Demographic Updates & Lifetime Limits\nUIDAI imposes strict lifetime limits to prevent identity fraud:\n* **Name Change:** Allowed only **2 times** in a lifetime. Requires valid Proof of Identity (PoI) such as Passport, Voter ID, or 10th Board Certificate.\n* **Date of Birth (DoB) Change:** Allowed only **1 time** in a lifetime. Can only be updated if the existing date was unverified. Requires Birth Certificate or Board Marksheet.\n* **Gender Change:** Allowed only **1 time** in a lifetime.\n* **Address Update:** No lifetime limit. Can be updated online through the myAadhaar portal using a valid Proof of Address (PoA) or Head of Family (HoF) based confirmation.",
+    "body": "UIDAI imposes strict lifetime limits to prevent identity fraud:\n* **Name Change:** Allowed only **2 times** in a lifetime. Requires valid Proof of Identity (PoI) such as Passport, Voter ID, or 10th Board Certificate.\n* **Date of Birth (DoB) Change:** Allowed only **1 time** in a lifetime. Can only be updated if the existing date was unverified. Requires Birth Certificate or Board Marksheet.\n* **Gender Change:** Allowed only **1 time** in a lifetime.\n* **Address Update:** No lifetime limit. Can be updated online through the myAadhaar portal using a valid Proof of Address (PoA) or Head of Family (HoF) based confirmation."
+  },
+  {
+    "id": "aadhaar_guidelines_5",
+    "document": "aadhaar_guidelines",
+    "title": "4. Acceptable Documents",
+    "content": "## 4. Acceptable Documents\n* **Proof of Identity (PoI):** Voter ID, Driving Licence, Indian Passport, PAN Card, Ration Card with photo, 10th Marks Sheet with photo.\n* **Proof of Address (PoA):** Electricity Bill (last 3 months), Water Bill, Bank Passbook with branch stamp and photo, Registered Rent Agreement, Gas Connection Bill, MP/MLA Certificate in UIDAI format.\n* **Proof of Date of Birth (PoB):** Birth Certificate, 10th School Leaving Certificate, Passport.",
+    "body": "* **Proof of Identity (PoI):** Voter ID, Driving Licence, Indian Passport, PAN Card, Ration Card with photo, 10th Marks Sheet with photo.\n* **Proof of Address (PoA):** Electricity Bill (last 3 months), Water Bill, Bank Passbook with branch stamp and photo, Registered Rent Agreement, Gas Connection Bill, MP/MLA Certificate in UIDAI format.\n* **Proof of Date of Birth (PoB):** Birth Certificate, 10th School Leaving Certificate, Passport."
+  },
+  {
+    "id": "aadhaar_guidelines_6",
+    "document": "aadhaar_guidelines",
+    "title": "5. PVC Card & Masked Aadhaar",
+    "content": "## 5. PVC Card & Masked Aadhaar\n* **Aadhaar PVC Card:** Can be ordered for ₹50 on myaadhaar.uidai.gov.in. Includes hologram, microtext, and ghost image.\n* **Masked Aadhaar:** Displays only the last 4 digits (e.g., `XXXX-XXXX-1234`). Masked Aadhaar is legally valid for hotel check-ins, KYC, and travel, preventing identity theft.",
+    "body": "* **Aadhaar PVC Card:** Can be ordered for ₹50 on myaadhaar.uidai.gov.in. Includes hologram, microtext, and ghost image.\n* **Masked Aadhaar:** Displays only the last 4 digits (e.g., `XXXX-XXXX-1234`). Masked Aadhaar is legally valid for hotel check-ins, KYC, and travel, preventing identity theft."
+  },
+  {
+    "id": "mismatch_and_affidavit_1",
+    "document": "mismatch_and_affidavit",
+    "title": "Document Discrepancy & Name Mismatch Resolution Guide",
+    "content": "# Document Discrepancy & Name Mismatch Resolution Guide",
+    "body": "Document Discrepancy & Name Mismatch Resolution Guide"
+  },
+  {
+    "id": "mismatch_and_affidavit_2",
+    "document": "mismatch_and_affidavit",
+    "title": "1. Golden Hierarchy of Documents",
+    "content": "## 1. Golden Hierarchy of Documents\nWhen personal details differ across your records, Indian authorities follow this legal authority hierarchy:\n1. **Supreme Root Document:** Birth Certificate or 10th Standard / Matriculation Board Marksheet.\n2. **Primary Identity Anchor:** Aadhaar Card (align this with your 10th Board Certificate).\n3. **Financial Identifier:** PAN Card (align this with your Aadhaar Card).\n4. **International Travel Document:** Passport (issued based on 10th cert + Aadhaar + PAN alignment).",
+    "body": "When personal details differ across your records, Indian authorities follow this legal authority hierarchy:\n1. **Supreme Root Document:** Birth Certificate or 10th Standard / Matriculation Board Marksheet.\n2. **Primary Identity Anchor:** Aadhaar Card (align this with your 10th Board Certificate).\n3. **Financial Identifier:** PAN Card (align this with your Aadhaar Card).\n4. **International Travel Document:** Passport (issued based on 10th cert + Aadhaar + PAN alignment)."
+  },
+  {
+    "id": "mismatch_and_affidavit_3",
+    "document": "mismatch_and_affidavit",
+    "title": "2. Common Mismatches & Solutions",
+    "content": "## 2. Common Mismatches & Solutions",
+    "body": "2. Common Mismatches & Solutions"
+  },
+  {
+    "id": "mismatch_and_affidavit_4",
+    "document": "mismatch_and_affidavit",
+    "title": "A. Initial vs. Expanded Full Name (e.g. \"K. Sharma\" vs \"Kumar Sharma\")",
+    "content": "### A. Initial vs. Expanded Full Name (e.g. \"K. Sharma\" vs \"Kumar Sharma\")\n* Aadhaar accepts initials, but PAN and Passport require full names.\n* **Resolution Path:**\n  1. Take your 10th Certificate showing full name.\n  2. Visit an Aadhaar Seva Kendra or apply online to expand initial in Aadhaar.\n  3. Once updated Aadhaar is generated, update PAN.\n  4. Finally link PAN-Aadhaar or apply for Passport.",
+    "body": "* Aadhaar accepts initials, but PAN and Passport require full names.\n* **Resolution Path:**\n  1. Take your 10th Certificate showing full name.\n  2. Visit an Aadhaar Seva Kendra or apply online to expand initial in Aadhaar.\n  3. Once updated Aadhaar is generated, update PAN.\n  4. Finally link PAN-Aadhaar or apply for Passport."
+  },
+  {
+    "id": "mismatch_and_affidavit_5",
+    "document": "mismatch_and_affidavit",
+    "title": "B. Single Name / No Surname (e.g. \"Pooja\")",
+    "content": "### B. Single Name / No Surname (e.g. \"Pooja\")\n* Having only one name causes major international travel issues:\n  * US and European visas often print \"FNU\" (First Name Unknown) or refuse visa issuance.\n  * In Indian passports, if you put \"Pooja\" in Given Name, the system moves it to Surname and leaves Given Name empty.\n* **Resolution Path:**\n  * Add your family surname or father's name to Aadhaar first using an affidavit or gazette notice before applying for a fresh passport.",
+    "body": "* Having only one name causes major international travel issues:\n  * US and European visas often print \"FNU\" (First Name Unknown) or refuse visa issuance.\n  * In Indian passports, if you put \"Pooja\" in Given Name, the system moves it to Surname and leaves Given Name empty.\n* **Resolution Path:**\n  * Add your family surname or father's name to Aadhaar first using an affidavit or gazette notice before applying for a fresh passport."
+  },
+  {
+    "id": "mismatch_and_affidavit_6",
+    "document": "mismatch_and_affidavit",
+    "title": "C. Marriage Surname Change for Women",
+    "content": "### C. Marriage Surname Change for Women\n* Many women change surname from maiden name to married surname (e.g., \"Sharma\" to \"Verma\").\n* **Passport Seva Rule:** Marriage certificate is **NOT mandatory** to add spouse name or change surname on passport. A simple self-declaration in standard Annexure D is accepted.\n* However, updating Aadhaar address and surname first with marriage certificate makes all subsequent bank, PAN, and passport updates 10x smoother.",
+    "body": "* Many women change surname from maiden name to married surname (e.g., \"Sharma\" to \"Verma\").\n* **Passport Seva Rule:** Marriage certificate is **NOT mandatory** to add spouse name or change surname on passport. A simple self-declaration in standard Annexure D is accepted.\n* However, updating Aadhaar address and surname first with marriage certificate makes all subsequent bank, PAN, and passport updates 10x smoother."
+  },
+  {
+    "id": "mismatch_and_affidavit_7",
+    "document": "mismatch_and_affidavit",
+    "title": "D. Major Name Change (Complete Rename)",
+    "content": "### D. Major Name Change (Complete Rename)\n* If changing name completely (e.g., from \"Rajesh Gupta\" to \"Arjun Kapoor\"):\n  1. Prepare an Affidavit on ₹100 non-judicial stamp paper attested by a First Class Judicial Magistrate or Notary.\n  2. Publish advertisements in two daily newspapers (one English national daily, one vernacular local daily).\n  3. Apply for publication in the Gazette of India (Department of Publication, Civil Lines, Delhi).\n  4. Submit Gazette copy to UIDAI and Passport Seva.",
+    "body": "* If changing name completely (e.g., from \"Rajesh Gupta\" to \"Arjun Kapoor\"):\n  1. Prepare an Affidavit on ₹100 non-judicial stamp paper attested by a First Class Judicial Magistrate or Notary.\n  2. Publish advertisements in two daily newspapers (one English national daily, one vernacular local daily).\n  3. Apply for publication in the Gazette of India (Department of Publication, Civil Lines, Delhi).\n  4. Submit Gazette copy to UIDAI and Passport Seva."
+  },
+  {
+    "id": "pan_guidelines_1",
+    "document": "pan_guidelines",
+    "title": "Income Tax Department PAN Card Guidelines",
+    "content": "# Income Tax Department PAN Card Guidelines",
+    "body": "Income Tax Department PAN Card Guidelines"
+  },
+  {
+    "id": "pan_guidelines_2",
+    "document": "pan_guidelines",
+    "title": "1. Permanent Account Number (PAN) Overview",
+    "content": "## 1. Permanent Account Number (PAN) Overview\nPAN is a 10-digit alphanumeric identifier issued by the Income Tax Department under Section 139A. It is mandatory for tax filing, opening bank accounts, high-value transactions, and investing in stocks/mutual funds.",
+    "body": "PAN is a 10-digit alphanumeric identifier issued by the Income Tax Department under Section 139A. It is mandatory for tax filing, opening bank accounts, high-value transactions, and investing in stocks/mutual funds."
+  },
+  {
+    "id": "pan_guidelines_3",
+    "document": "pan_guidelines",
+    "title": "2. Instant e-PAN vs Form 49A",
+    "content": "## 2. Instant e-PAN vs Form 49A\n* **Instant e-PAN via Aadhaar e-KYC:**\n  * Applicable for applicants who have never held a PAN.\n  * Applicant must possess an Aadhaar card linked with an active mobile number.\n  * Issued within 10 to 30 minutes in digitally signed PDF format.\n  * 100% Free of charge.\n  * Physical reprint can be ordered later from Protean or UTIITSL for ₹50.\n* **Form 49A (New Physical PAN):**\n  * Applied through Protean (formerly NSDL e-Gov) or UTIITSL.\n  * Fee: ₹107 for dispatch within India, ₹1,017 for dispatch outside India.\n  * Required if applicant has no Aadhaar or wishes to provide custom signature and photo.",
+    "body": "* **Instant e-PAN via Aadhaar e-KYC:**\n  * Applicable for applicants who have never held a PAN.\n  * Applicant must possess an Aadhaar card linked with an active mobile number.\n  * Issued within 10 to 30 minutes in digitally signed PDF format.\n  * 100% Free of charge.\n  * Physical reprint can be ordered later from Protean or UTIITSL for ₹50.\n* **Form 49A (New Physical PAN):**\n  * Applied through Protean (formerly NSDL e-Gov) or UTIITSL.\n  * Fee: ₹107 for dispatch within India, ₹1,017 for dispatch outside India.\n  * Required if applicant has no Aadhaar or wishes to provide custom signature and photo."
+  },
+  {
+    "id": "pan_guidelines_4",
+    "document": "pan_guidelines",
+    "title": "3. Mandatory PAN-Aadhaar Linking Rules",
+    "content": "## 3. Mandatory PAN-Aadhaar Linking Rules\n* Under Section 139AA and Section 234H of the Income Tax Act, linking PAN with Aadhaar is mandatory for all eligible citizens.\n* **Inoperative PAN Consequences:** Unlinked PAN cards become inoperative. Inoperative PAN cannot be used for income tax refunds, higher TDS is deducted (up to 20%), and pending ITRs are not processed.\n* **Penalty Payment Flow:**\n  1. Visit Income Tax e-Filing portal -> e-Pay Tax.\n  2. Enter PAN and mobile for OTP verification.\n  3. Select Income Tax tile (Payment Code: Major Head 0021 / Minor Head 500 - Other Receipts / Fee for linking).\n  4. Pay ₹1,000 via Netbanking, UPI, or Debit Card.\n  5. Wait 24 to 48 hours for Challan to reflect.\n  6. Return to \"Link Aadhaar\" page and submit linking request.",
+    "body": "* Under Section 139AA and Section 234H of the Income Tax Act, linking PAN with Aadhaar is mandatory for all eligible citizens.\n* **Inoperative PAN Consequences:** Unlinked PAN cards become inoperative. Inoperative PAN cannot be used for income tax refunds, higher TDS is deducted (up to 20%), and pending ITRs are not processed.\n* **Penalty Payment Flow:**\n  1. Visit Income Tax e-Filing portal -> e-Pay Tax.\n  2. Enter PAN and mobile for OTP verification.\n  3. Select Income Tax tile (Payment Code: Major Head 0021 / Minor Head 500 - Other Receipts / Fee for linking).\n  4. Pay ₹1,000 via Netbanking, UPI, or Debit Card.\n  5. Wait 24 to 48 hours for Challan to reflect.\n  6. Return to \"Link Aadhaar\" page and submit linking request."
+  },
+  {
+    "id": "pan_guidelines_5",
+    "document": "pan_guidelines",
+    "title": "4. Name & Initial Rules on PAN",
+    "content": "## 4. Name & Initial Rules on PAN\n* The Income Tax Department **strictly does NOT allow initials** in full names or father's name.\n* If your name on school documents is \"R. Karthik\", PAN requires full expansion (e.g. \"Ramachandran Karthik\").\n* If Aadhaar contains an initial (\"R. Karthik\") and PAN contains expanded name (\"Ramachandran Karthik\"), linking will fail with a demographic mismatch.\n* Solution: First update Aadhaar to match the expanded format, then link.",
+    "body": "* The Income Tax Department **strictly does NOT allow initials** in full names or father's name.\n* If your name on school documents is \"R. Karthik\", PAN requires full expansion (e.g. \"Ramachandran Karthik\").\n* If Aadhaar contains an initial (\"R. Karthik\") and PAN contains expanded name (\"Ramachandran Karthik\"), linking will fail with a demographic mismatch.\n* Solution: First update Aadhaar to match the expanded format, then link."
+  },
+  {
+    "id": "passport_guidelines_1",
+    "document": "passport_guidelines",
+    "title": "Passport Seva (Ministry of External Affairs) Guidelines",
+    "content": "# Passport Seva (Ministry of External Affairs) Guidelines",
+    "body": "Passport Seva (Ministry of External Affairs) Guidelines"
+  },
+  {
+    "id": "passport_guidelines_2",
+    "document": "passport_guidelines",
+    "title": "1. Overview of Passport Services",
+    "content": "## 1. Overview of Passport Services\nIndian passports are issued by the CPV (Consular, Passport and Visa) Division of the Ministry of External Affairs through Passport Seva Kendras (PSK) and Post Office Passport Seva Kendras (POPSK).",
+    "body": "Indian passports are issued by the CPV (Consular, Passport and Visa) Division of the Ministry of External Affairs through Passport Seva Kendras (PSK) and Post Office Passport Seva Kendras (POPSK)."
+  },
+  {
+    "id": "passport_guidelines_3",
+    "document": "passport_guidelines",
+    "title": "2. Normal vs. Tatkaal Scheme",
+    "content": "## 2. Normal vs. Tatkaal Scheme\n* **Normal Scheme:**\n  * Fee: ₹1,500 (36 pages booklet) / ₹2,000 (60 pages jumbo booklet).\n  * Validity: 10 years for adults (5 years or until age 18 for minors).\n  * Police verification occurs before passport dispatch (Pre-Police Verification).\n  * Turnaround: 15 to 30 working days.\n* **Tatkaal Scheme:**\n  * Fee: Additional ₹2,000 over Normal fee (Total ₹3,500 for 36 pages / ₹4,000 for 60 pages).\n  * Issuance without waiting for police verification (Post-Police Verification or No Verification).\n  * Dispatched within 1 to 3 working days after appointment.\n  * Strict Document Requirements: Must provide 3 identity proofs from the approved list (e.g. Aadhaar, Voter ID, PAN, Bank Passbook, Service ID). Names must match 100%.",
+    "body": "* **Normal Scheme:**\n  * Fee: ₹1,500 (36 pages booklet) / ₹2,000 (60 pages jumbo booklet).\n  * Validity: 10 years for adults (5 years or until age 18 for minors).\n  * Police verification occurs before passport dispatch (Pre-Police Verification).\n  * Turnaround: 15 to 30 working days.\n* **Tatkaal Scheme:**\n  * Fee: Additional ₹2,000 over Normal fee (Total ₹3,500 for 36 pages / ₹4,000 for 60 pages).\n  * Issuance without waiting for police verification (Post-Police Verification or No Verification).\n  * Dispatched within 1 to 3 working days after appointment.\n  * Strict Document Requirements: Must provide 3 identity proofs from the approved list (e.g. Aadhaar, Voter ID, PAN, Bank Passbook, Service ID). Names must match 100%."
+  },
+  {
+    "id": "passport_guidelines_4",
+    "document": "passport_guidelines",
+    "title": "3. Non-ECR (Emigration Check Not Required)",
+    "content": "## 3. Non-ECR (Emigration Check Not Required)\n* Passports in India are either marked with **ECR** (Emigration Check Required) or **Non-ECR**.\n* Non-ECR allows travel without clearance for work to 18 countries (UAE, Qatar, Kuwait, Oman, Bahrain, Saudi Arabia, Malaysia, etc.).\n* **Who qualifies for Non-ECR?**\n  * All persons having educational qualifications of Matriculation (10th standard) or above.\n  * All Income Tax Assessees (taxpayers who filed ITR in personal capacity).\n  * All persons above 50 years of age.\n  * Children below 18 years of age.\n  * Spouses of persons holding Non-ECR status.",
+    "body": "* Passports in India are either marked with **ECR** (Emigration Check Required) or **Non-ECR**.\n* Non-ECR allows travel without clearance for work to 18 countries (UAE, Qatar, Kuwait, Oman, Bahrain, Saudi Arabia, Malaysia, etc.).\n* **Who qualifies for Non-ECR?**\n  * All persons having educational qualifications of Matriculation (10th standard) or above.\n  * All Income Tax Assessees (taxpayers who filed ITR in personal capacity).\n  * All persons above 50 years of age.\n  * Children below 18 years of age.\n  * Spouses of persons holding Non-ECR status."
+  },
+  {
+    "id": "passport_guidelines_5",
+    "document": "passport_guidelines",
+    "title": "4. Passport Seva Kendra (PSK) Appointment Tips",
+    "content": "## 4. Passport Seva Kendra (PSK) Appointment Tips\n* **Color Original Documents:** Always carry original documents plus 2 sets of self-attested photocopies.\n* **Photograph:** For adults, photos are captured live digitally at the PSK counter. You do not need physical photos unless applying for children under 4 years old.\n* **Counter Navigation:** PSK has Counters A (Biometrics & photo), B (Document verification by TCS/MEA officers), and C (Granting officer interview).",
+    "body": "* **Color Original Documents:** Always carry original documents plus 2 sets of self-attested photocopies.\n* **Photograph:** For adults, photos are captured live digitally at the PSK counter. You do not need physical photos unless applying for children under 4 years old.\n* **Counter Navigation:** PSK has Counters A (Biometrics & photo), B (Document verification by TCS/MEA officers), and C (Granting officer interview)."
+  },
+  {
+    "id": "passport_guidelines_6",
+    "document": "passport_guidelines",
+    "title": "5. Police Verification Preparation",
+    "content": "## 5. Police Verification Preparation\n* The local police station beat officer will call or visit your registered present address.\n* Keep copies ready: Aadhaar, Electricity Bill/Rent Agreement, 2 neighbor references with their Aadhaar copies and phone numbers.",
+    "body": "* The local police station beat officer will call or visit your registered present address.\n* Keep copies ready: Aadhaar, Electricity Bill/Rent Agreement, 2 neighbor references with their Aadhaar copies and phone numbers."
+  }
+]
