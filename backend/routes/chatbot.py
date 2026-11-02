@@ -7,18 +7,32 @@ chatbot_bp = Blueprint('chatbot', __name__, url_prefix='/api/chat')
 def chat():
     """
     RAG-powered conversational identity assistant endpoint.
-    Retrieves grounded official guidelines and provides actionable answers.
+    Accepts: { "message": "...", "service": "aadhaar|pan|passport" (optional) }
     """
     data = request.get_json() or {}
     message = data.get("message", "").strip()
-    
+    service = data.get("service", None)
+
     if not message:
         return jsonify({
             "status": "error",
             "message": "Message content cannot be empty."
         }), 400
 
-    response = get_rag_chat_response(message)
+    if len(message) > 1000:
+        return jsonify({
+            "status": "error",
+            "message": "Message is too long (max 1000 characters)."
+        }), 400
+
+    # Validate service filter
+    valid_services = {"aadhaar", "pan", "passport"}
+    if service and service.lower() not in valid_services:
+        service = None  # ignore invalid values silently
+    elif service:
+        service = service.lower()
+
+    response = get_rag_chat_response(message, service=service)
     return jsonify({
         "status": "success",
         "data": response

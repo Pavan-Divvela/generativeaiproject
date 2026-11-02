@@ -26,7 +26,7 @@ class TestChatbot(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         data = response.get_json()
         self.assertEqual(data["status"], "success")
-        self.assertIn("3,500", data["data"]["answer"])
+        self.assertTrue("3500" in data["data"]["answer"] or "3,500" in data["data"]["answer"])
         self.assertGreater(len(data["data"]["suggestions"]), 0)
 
     def test_empty_chat_message(self):

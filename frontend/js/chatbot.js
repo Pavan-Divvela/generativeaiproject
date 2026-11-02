@@ -1,4 +1,4 @@
-// Chatbot UI Controller
+// Chatbot UI Controller — RAG-powered with service selector & citation rendering
 
 document.addEventListener("DOMContentLoaded", () => {
   initChatbot();
@@ -9,17 +9,27 @@ function initChatbot() {
   const chatForm = document.getElementById("chat-form");
   const chatInput = document.getElementById("chat-input");
   const suggestionContainer = document.getElementById("chat-suggestions");
+  const serviceSelect = document.getElementById("service-select");
 
   if (!chatMessages || !chatForm || !chatInput) return;
 
   // Load starter suggestions
   loadStarterSuggestions(suggestionContainer, chatInput, chatForm);
 
+  let isSubmitting = false;  // prevent duplicate submissions
+
   // Form submission
   chatForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
     const query = chatInput.value.trim();
     if (!query) return;
+
+    const selectedService = serviceSelect ? serviceSelect.value : "";
+
+    isSubmitting = true;
+    chatInput.disabled = true;
 
     appendMessage(chatMessages, "user", query);
     chatInput.value = "";
@@ -28,10 +38,13 @@ function initChatbot() {
     const typingId = appendTypingIndicator(chatMessages);
 
     try {
+      const body = { message: query };
+      if (selectedService) body.service = selectedService;
+
       const resp = await fetch(`${API_BASE}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: query })
+        body: JSON.stringify(body)
       });
 
       removeMessage(typingId);
@@ -39,33 +52,67 @@ function initChatbot() {
       if (resp.ok) {
         const json = await resp.json();
         const data = json.data || {};
-        appendMessage(chatMessages, "bot", data.answer, data.sources);
+        appendMessage(chatMessages, "bot", data.answer, data.sources || [], data.source_mode);
         renderSuggestions(suggestionContainer, data.suggestions, chatInput, chatForm);
       } else {
-        appendMessage(chatMessages, "bot", "⚠️ We encountered a temporary error connecting to the knowledge assistant. Please try again.");
+        const errJson = await resp.json().catch(() => ({}));
+        appendMessage(chatMessages, "bot",
+          `⚠️ ${errJson.message || "We encountered a temporary error. Please try again."}`);
       }
     } catch (err) {
       removeMessage(typingId);
       console.warn("Using offline bot fallback:", err);
       const fallbackAns = getOfflineAnswer(query);
       appendMessage(chatMessages, "bot", fallbackAns);
+    } finally {
+      isSubmitting = false;
+      chatInput.disabled = false;
+      chatInput.focus();
     }
   });
 }
 
-function appendMessage(container, sender, markdownText, sources = []) {
+function appendMessage(container, sender, markdownText, sources = [], sourceMode = "") {
   const msgEl = document.createElement("div");
   msgEl.className = `message-bubble ${sender}`;
 
-  let parsedHtml = formatMarkdown(markdownText);
+  let parsedHtml = formatMarkdown(markdownText || "");
 
+  // ── Citations / Sources ─────────────────────────────────────────────────────
   if (sources && sources.length > 0) {
-    const sourcesHtml = sources.map(s => `
-      <span style="display: inline-block; background: #e2e8f0; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; margin-right: 6px; margin-top: 6px; color: #334155;">
-        📄 ${s.title || s.document}
-      </span>
-    `).join("");
-    parsedHtml += `<div style="margin-top: 10px; border-top: 1px solid #e2e8f0; padding-top: 6px;"><strong style="font-size: 0.75rem; color: #64748b;">Grounding Sources:</strong><br>${sourcesHtml}</div>`;
+    const sourcesHtml = sources.map((s, i) => {
+      const label = s.title || s.document || "Official Document";
+      const page  = s.page_range ? ` · ${s.page_range}` : "";
+      const svc   = s.service ? ` [${s.service.toUpperCase()}]` : "";
+
+      if (s.official_url) {
+        return `
+          <a href="${s.official_url}" target="_blank" rel="noopener noreferrer"
+             style="display:inline-flex; align-items:center; gap:6px; background:#dbeafe;
+                    color:#1e40af; font-size:0.75rem; padding:3px 10px; border-radius:12px;
+                    margin:3px 4px 0 0; text-decoration:none; font-weight:600;">
+            📄 ${label}${svc}${page} ↗
+          </a>`;
+      } else {
+        return `
+          <span style="display:inline-block; background:#e2e8f0; font-size:0.75rem;
+                       padding:3px 10px; border-radius:12px; margin:3px 4px 0 0; color:#334155;">
+            📄 ${label}${svc}${page}
+          </span>`;
+      }
+    }).join("");
+
+    const modeLabel = sourceMode === "chroma_rag"
+      ? "🔍 RAG Sources (Official PDFs)"
+      : "📚 Knowledge Base Sources";
+
+    parsedHtml += `
+      <div style="margin-top:10px; border-top:1px solid #e2e8f0; padding-top:8px;">
+        <strong style="font-size:0.72rem; color:#64748b; display:block; margin-bottom:4px;">
+          ${modeLabel}:
+        </strong>
+        <div>${sourcesHtml}</div>
+      </div>`;
   }
 
   msgEl.innerHTML = parsedHtml;
@@ -149,5 +196,5 @@ function getOfflineAnswer(query) {
   if (q.includes("tatkaal")) {
     return "Tatkaal passport requires 3 identity documents from the approved list (e.g., Aadhaar + PAN + Voter ID) with 100% identical names and birth dates. Fee is ₹3,500 (36 pages) or ₹4,000 (60 pages).";
   }
-  return "Please refer to the official portals for guidance: UIDAI (myaadhaar.uidai.gov.in) for Aadhaar, Protean/Income Tax for PAN, and Passport Seva (passportindia.gov.in) for Passport.";
+  return "Please refer to the official portals for guidance: UIDAI (myaadhaar.uidai.gov.in) for Aadhaar, Income Tax for PAN, and Passport Seva (passportindia.gov.in) for Passport.";
 }

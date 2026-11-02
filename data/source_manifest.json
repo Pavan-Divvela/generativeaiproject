@@ -1,0 +1,40 @@
+{
+  "_comment": "Maps each PDF filename (relative to data/raw/<service>/) to its verified official source URL and metadata. Do NOT invent URLs.",
+  "aadhaar": {
+    "aadhaar_enrollment_correction.pdf": {
+      "title": "Aadhaar Enrolment & Update Process",
+      "official_url": "https://uidai.gov.in/en/my-aadhaar/about-your-aadhaar/overview.html",
+      "description": "Official UIDAI guidelines for Aadhaar enrollment and demographic/biometric corrections"
+    },
+    "uidai_circular_name_update.pdf": {
+      "title": "UIDAI Name Update Guidelines",
+      "official_url": "https://uidai.gov.in/en/my-aadhaar/update-your-aadhaar.html",
+      "description": "UIDAI circular on name change limits and acceptable documents"
+    }
+  },
+  "pan": {
+    "pan_application_form49a.pdf": {
+      "title": "PAN Card Application Form 49A Instructions",
+      "official_url": "https://www.incometax.gov.in/iec/foportal/help/how-to-apply-for-pan",
+      "description": "Income Tax Department guide for Form 49A (PAN application for Indian citizens)"
+    },
+    "pan_aadhaar_linking_circular.pdf": {
+      "title": "PAN-Aadhaar Linking — Section 139AA Circular",
+      "official_url": "https://eportal.incometax.gov.in/iec/foservices/#/pre-login/link-aadhaar",
+      "description": "CBDT circular on mandatory PAN-Aadhaar linking with late fee under Section 234H"
+    }
+  },
+  "passport": {
+    "passport_application_instructions.pdf": {
+      "title": "Passport Application — Normal & Tatkaal Instructions",
+      "official_url": "https://www.passportindia.gov.in/AppOnlineProject/pdf/FormInstructions.pdf",
+      "description": "MEA official instructions for passport application (fresh, renewal, Tatkaal)"
+    },
+    "passport_required_documents.pdf": {
+      "title": "Passport — Documents Required",
+      "official_url": "https://www.passportindia.gov.in/AppOnlineProject/pdf/RequiredDocumentListforNormalApplicants.pdf",
+      "description": "Official MEA document checklist for passport applicants"
+    }
+  },
+  "_note": "Add real PDFs downloaded from the above official_url links to data/raw/<service>/ and then run: python -m backend.rag.pdf_ingest"
+}

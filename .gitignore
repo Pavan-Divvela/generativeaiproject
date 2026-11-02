@@ -27,6 +27,8 @@ wheels/
 .env
 *.db
 *.sqlite3
+data/chroma_db/
+.pytest_cache/
 
 # IDEs
 .vscode/

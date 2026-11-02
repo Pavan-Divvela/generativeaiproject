@@ -72,9 +72,19 @@
         <!-- Loaded dynamically via chatbot.js -->
       </div>
 
-      <!-- Input Bar -->
-      <form id="chat-form" class="chat-input-bar">
-        <input type="text" id="chat-input" placeholder="Type your query (e.g., 'What documents are required for a Tatkaal passport?')..." required autocomplete="off">
+      <!-- Service Filter + Input Bar -->
+      <form id="chat-form" class="chat-input-bar" style="flex-wrap: wrap; gap: 8px;">
+        <select id="service-select"
+          style="padding: 10px 12px; border-radius: 8px; border: 1px solid #cbd5e1;
+                 font-size: 0.9rem; background: #f8fafc; color: #374151; cursor: pointer; min-width: 140px;">
+          <option value="">🔍 All Services</option>
+          <option value="aadhaar">🆔 Aadhaar</option>
+          <option value="pan">💳 PAN Card</option>
+          <option value="passport">🛂 Passport</option>
+        </select>
+        <input type="text" id="chat-input"
+          placeholder="Ask about Aadhaar, PAN or Passport process..."
+          required autocomplete="off" style="flex: 1; min-width: 200px;">
         <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">Send</button>
       </form>
     </div>
