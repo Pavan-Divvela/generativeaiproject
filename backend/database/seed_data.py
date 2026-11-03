@@ -1,4 +1,4 @@
-from database.db import get_db_connection, init_db
+from database.db import get_db_connection, init_db, _format_query
 
 def seed_database():
     """Seeds the database with comprehensive official document rules and data."""
@@ -93,8 +93,8 @@ def seed_database():
         )
     ]
     cursor.executemany(
-        """INSERT INTO services (code, category, title, description, mode, fee, timeline, official_url)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+        _format_query("""INSERT INTO services (code, category, title, description, mode, fee, timeline, official_url)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)"""),
         services_data
     )
 
@@ -137,8 +137,8 @@ def seed_database():
         ('passport', 'Non-ECR', 'Senior Citizen Certificate (Age above 50 years)', 'Documentary proof of age', 'Citizens aged 50+ automatically qualify for Non-ECR', 1)
     ]
     cursor.executemany(
-        """INSERT INTO acceptable_documents (category, proof_type, document_name, issuer, notes, is_popular)
-           VALUES (?, ?, ?, ?, ?, ?)""",
+        _format_query("""INSERT INTO acceptable_documents (category, proof_type, document_name, issuer, notes, is_popular)
+           VALUES (?, ?, ?, ?, ?, ?)"""),
         docs_data
     )
 
@@ -182,8 +182,8 @@ def seed_database():
         )
     ]
     cursor.executemany(
-        """INSERT INTO discrepancy_rules (case_type, affected_docs, severity, explanation, recommendation, affidavit_required, gazette_required)
-           VALUES (?, ?, ?, ?, ?, ?, ?)""",
+        _format_query("""INSERT INTO discrepancy_rules (case_type, affected_docs, severity, explanation, recommendation, affidavit_required, gazette_required)
+           VALUES (?, ?, ?, ?, ?, ?, ?)"""),
         discrepancy_data
     )
 
@@ -239,8 +239,8 @@ def seed_database():
         )
     ]
     cursor.executemany(
-        """INSERT INTO faqs (category, question, answer, tags)
-           VALUES (?, ?, ?, ?)""",
+        _format_query("""INSERT INTO faqs (category, question, answer, tags)
+           VALUES (?, ?, ?, ?)"""),
         faqs_data
     )
 

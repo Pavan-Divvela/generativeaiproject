@@ -6,7 +6,7 @@ import re
 import secrets
 from datetime import datetime, timedelta, timezone
 from werkzeug.security import generate_password_hash, check_password_hash
-from database.db import query_db, execute_db, get_db_connection
+from database.db import query_db, execute_db, get_db_connection, is_cloud_db, _format_query
 
 TOKEN_EXPIRY_DAYS = 30
 EMAIL_REGEX = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
@@ -165,21 +165,41 @@ def logout_user(token: str) -> bool:
 
 
 def save_user_checklist(user_id: int, service_code: str, service_title: str, items_checked: int, total_items: int) -> dict:
-    """Saves or updates checklist progress for a user."""
+    """
+    Saves or updates checklist progress for a user.
+    Uses MySQL/TiDB-compatible INSERT ... ON DUPLICATE KEY UPDATE in cloud mode,
+    and SQLite's ON CONFLICT ... DO UPDATE in local mode.
+    """
     conn = get_db_connection()
-    cur = conn.cursor()
 
-    cur.execute(
-        """INSERT INTO user_saved_checklists (user_id, service_code, service_title, items_checked, total_items, updated_at)
-           VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
-           ON CONFLICT(user_id, service_code) DO UPDATE SET
-               items_checked=excluded.items_checked,
-               total_items=excluded.total_items,
-               updated_at=CURRENT_TIMESTAMP""",
-        (user_id, service_code, service_title, items_checked, total_items)
-    )
-    conn.commit()
-    conn.close()
+    try:
+        cur = conn.cursor()
+
+        if is_cloud_db():
+            # MySQL / TiDB syntax
+            sql = """INSERT INTO user_saved_checklists
+                         (user_id, service_code, service_title, items_checked, total_items, updated_at)
+                     VALUES (%s, %s, %s, %s, %s, NOW())
+                     ON DUPLICATE KEY UPDATE
+                         service_title = VALUES(service_title),
+                         items_checked = VALUES(items_checked),
+                         total_items   = VALUES(total_items),
+                         updated_at    = NOW()"""
+            cur.execute(sql, (user_id, service_code, service_title, items_checked, total_items))
+        else:
+            # SQLite syntax
+            sql = """INSERT INTO user_saved_checklists
+                         (user_id, service_code, service_title, items_checked, total_items, updated_at)
+                     VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+                     ON CONFLICT(user_id, service_code) DO UPDATE SET
+                         service_title = excluded.service_title,
+                         items_checked = excluded.items_checked,
+                         total_items   = excluded.total_items,
+                         updated_at    = CURRENT_TIMESTAMP"""
+            cur.execute(sql, (user_id, service_code, service_title, items_checked, total_items))
+            conn.commit()
+    finally:
+        conn.close()
 
     return {
         "service_code": service_code,
