@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: aadhaar-pan-passport-helper
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt && python -m backend.rag.pdf_ingest
+    startCommand: gunicorn --chdir backend app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3-flash-preview
+      - key: FLASK_ENV
+        value: production
+      - key: DEBUG
+        value: "False"

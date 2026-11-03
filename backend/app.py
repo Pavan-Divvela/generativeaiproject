@@ -82,7 +82,9 @@ def create_app():
 
     return app
 
+# Expose WSGI application instance for production servers (gunicorn, render, etc.)
+app = create_app()
+
 if __name__ == '__main__':
-    app = create_app()
     print(f"🚀 Starting Aadhaar, PAN & Passport Process Helper on http://127.0.0.1:{Config.PORT}")
     app.run(host='0.0.0.0', port=Config.PORT, debug=Config.DEBUG)
