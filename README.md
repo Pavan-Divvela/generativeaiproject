@@ -25,6 +25,12 @@ This web application helps Indian citizens understand the step-by-step process f
 - **Aadhaar** — Enrollment, demographic/biometric corrections, PVC card, Masked Aadhaar
 - **PAN Card** — Instant e-PAN, Form 49A, PAN-Aadhaar linking, correction requests
 - **Passport** — Normal/Tatkaal scheme, Non-ECR status, police verification readiness, document checklists
+- **Citizen Account & Login** — Authenticated login, registration, and personalized dashboard to save and track customized document checklists across devices.
+
+### Demo Account Credentials
+- **Email:** `demo@example.com`
+- **Password:** `Password@123`
+*(A 1-click "Auto Fill" button is available on the Login page for testing)*
 
 ### How the Chatbot Works
 
