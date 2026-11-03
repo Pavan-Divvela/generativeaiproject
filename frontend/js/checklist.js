@@ -76,8 +76,9 @@ function renderChecklist(data, container) {
           <h3 style="color: var(--secondary); font-size: 1.3rem;">Your Personalized Document Checklist</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem;">Bring original physical documents + 2 self-attested photocopies.</p>
         </div>
-        <div style="display: flex; gap: 8px;">
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
           <button class="btn btn-outline" onclick="window.print()">🖨️ Print / Save PDF</button>
+          <button class="btn btn-outline" id="btn-save-checklist" onclick="saveChecklistToAccount('${data.target_service}', '${data.target_service.replace('_', ' ').toUpperCase()}', ${docs.length})">💾 Save to Account</button>
           ${data.official_url ? `<a href="${data.official_url}" target="_blank" rel="noopener" class="btn btn-primary">Go to Official Portal ↗</a>` : ''}
         </div>
       </div>
@@ -118,6 +119,57 @@ window.toggleDocCheck = function(storageKey, idx, checkbox) {
   const savedState = JSON.parse(localStorage.getItem(storageKey) || "{}");
   savedState[idx] = checkbox.checked;
   localStorage.setItem(storageKey, JSON.stringify(savedState));
+};
+
+window.saveChecklistToAccount = async function(serviceCode, serviceTitle, totalDocs) {
+  const token = localStorage.getItem("auth_token");
+  if (!token) {
+    if (confirm("Please sign in or create an account to save checklists to your profile. Go to login page now?")) {
+      window.location.href = "login.html";
+    }
+    return;
+  }
+
+  const storageKey = `checklist_${serviceCode}`;
+  const savedState = JSON.parse(localStorage.getItem(storageKey) || "{}");
+  const checkedCount = Object.values(savedState).filter(Boolean).length;
+
+  const btn = document.getElementById("btn-save-checklist");
+  if (btn) btn.innerText = "Saving...";
+
+  try {
+    const resp = await fetch(`${API_BASE}/api/auth/checklists`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        service_code: serviceCode,
+        service_title: serviceTitle,
+        items_checked: checkedCount,
+        total_items: totalDocs
+      })
+    });
+
+    if (resp.ok) {
+      if (btn) {
+        btn.innerText = "✓ Saved to Profile!";
+        btn.style.color = "#10b981";
+        setTimeout(() => {
+          btn.innerText = "💾 Save to Account";
+          btn.style.color = "";
+        }, 3000);
+      }
+      alert("Checklist successfully saved to your Citizen Profile! You can view it anytime on your Dashboard.");
+    } else {
+      alert("Could not save checklist. Please check if your session is active.");
+    }
+  } catch (err) {
+    alert("Connection error. Could not save to profile.");
+  } finally {
+    if (btn && btn.innerText === "Saving...") btn.innerText = "💾 Save to Account";
+  }
 };
 
 function getOfflineChecklist(service, scheme, has10th) {

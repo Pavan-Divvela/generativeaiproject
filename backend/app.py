@@ -16,15 +16,21 @@ from knowledge_base.ingest import ingest_all_documents
 from routes.services import services_bp
 from routes.checklist import checklist_bp
 from routes.chatbot import chatbot_bp
+from routes.auth import auth_bp
+from services.auth_service import seed_demo_user
 
 def create_app():
     app = Flask(__name__, static_folder=None)
     CORS(app)
 
-    # Ensure DB exists
+    # Ensure DB schema and demo user exist
     if not Config.DATABASE_PATH.exists():
         print("Database not found. Initializing and seeding...")
         seed_database()
+    else:
+        init_db()
+
+    seed_demo_user()
 
     # Ensure Knowledge Base chunks exist
     if not Config.CHUNKS_FILE.exists():
@@ -35,6 +41,7 @@ def create_app():
     app.register_blueprint(services_bp)
     app.register_blueprint(checklist_bp)
     app.register_blueprint(chatbot_bp)
+    app.register_blueprint(auth_bp)
 
     # Health check
     @app.route('/api/health', methods=['GET'])

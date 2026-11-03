@@ -45,3 +45,37 @@ CREATE TABLE IF NOT EXISTS faqs (
 CREATE INDEX IF NOT EXISTS idx_services_category ON services(category);
 CREATE INDEX IF NOT EXISTS idx_docs_category_proof ON acceptable_documents(category, proof_type);
 CREATE INDEX IF NOT EXISTS idx_faqs_category ON faqs(category);
+
+-- Authentication & User Management
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE NOT NULL,
+    full_name TEXT NOT NULL,
+    password_hash TEXT NOT NULL,
+    role TEXT DEFAULT 'citizen',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS user_sessions (
+    token TEXT PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS user_saved_checklists (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    service_code TEXT NOT NULL,
+    service_title TEXT NOT NULL,
+    items_checked INTEGER DEFAULT 0,
+    total_items INTEGER DEFAULT 0,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE(user_id, service_code)
+);
+
+CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
+CREATE INDEX IF NOT EXISTS idx_user_sessions_token ON user_sessions(token);
+CREATE INDEX IF NOT EXISTS idx_user_checklists_user ON user_saved_checklists(user_id);

@@ -7,10 +7,11 @@ const API_BASE = window.location.origin.includes(":5000")
 
 document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
+  initAuthNav();
   initMismatchAnalyzer();
 });
 
-// Mobile menu toggle & active link state
+// Mobile menu toggle, active link state & dynamic auth buttons
 function initNavigation() {
   const menuBtn = document.querySelector(".mobile-menu-btn");
   const nav = document.querySelector("nav.main-nav");
@@ -30,6 +31,62 @@ function initNavigation() {
       link.classList.add("active");
     }
   });
+}
+
+// Dynamic Auth State Navigation
+function initAuthNav() {
+  const nav = document.querySelector("nav.main-nav");
+  if (!nav) return;
+
+  let authContainer = document.getElementById("nav-auth-container");
+  if (!authContainer) {
+    authContainer = document.createElement("div");
+    authContainer.id = "nav-auth-container";
+    authContainer.style.display = "inline-flex";
+    authContainer.style.alignItems = "center";
+    authContainer.style.marginLeft = "8px";
+    nav.appendChild(authContainer);
+  }
+
+  const token = localStorage.getItem("auth_token");
+  const userJson = localStorage.getItem("auth_user");
+
+  if (token && userJson) {
+    try {
+      const user = JSON.parse(userJson);
+      const firstName = (user.full_name || "Citizen").split(" ")[0];
+      authContainer.innerHTML = `
+        <a href="dashboard.html" class="nav-user-pill" title="Open Citizen Dashboard">
+          👤 ${firstName}
+        </a>
+        <button onclick="globalLogout()" class="nav-logout-btn" title="Sign Out">Sign Out</button>
+      `;
+    } catch (e) {
+      authContainer.innerHTML = `<a href="login.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem;">🔐 Sign In</a>`;
+    }
+  } else {
+    authContainer.innerHTML = `<a href="login.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem;">🔐 Sign In</a>`;
+  }
+}
+
+function globalLogout() {
+  if (confirm("Are you sure you want to sign out?")) {
+    const token = localStorage.getItem("auth_token");
+    if (token) {
+      fetch(`${API_BASE}/api/auth/logout`, {
+        method: "POST",
+        headers: { "Authorization": `Bearer ${token}` }
+      }).finally(() => {
+        localStorage.removeItem("auth_token");
+        localStorage.removeItem("auth_user");
+        window.location.href = "login.html";
+      });
+    } else {
+      localStorage.removeItem("auth_token");
+      localStorage.removeItem("auth_user");
+      window.location.href = "login.html";
+    }
+  }
 }
 
 // Interactive Cross-Document Mismatch Analyzer

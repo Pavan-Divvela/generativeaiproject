@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citizen Login & Registration | Aadhaar, PAN & Passport Process Helper</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <!-- Official Advisory Disclaimer -->
+  <aside class="gov-disclaimer-bar">
+    <span>⚠️ <strong>Public Advisory:</strong> This platform provides independent public assistance to guide citizens through identity processes. Not affiliated with UIDAI, Income Tax Department, or MEA.</span>
+  </aside>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">🇮🇳</div>
+        <span>DocProcess Helper</span>
+      </a>
+
+      <button class="mobile-menu-btn" aria-label="Toggle navigation">☰</button>
+
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="aadhaar.html">Aadhaar</a>
+        <a href="pan.html">PAN Card</a>
+        <a href="passport.html">Passport</a>
+        <a href="process-guide.html">Process Roadmap</a>
+        <a href="faq.html">FAQs</a>
+        <a href="chatbot.html" class="nav-cta">🤖 AI Assistant</a>
+        <div id="nav-auth-container" style="display: inline-flex; align-items: center; margin-left: 8px;">
+          <a href="login.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem;">🔐 Sign In</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="content-area">
+    <div class="auth-wrapper">
+      <div class="auth-card">
+
+        <!-- Header -->
+        <div class="auth-header">
+          <div class="auth-header-icon">🛡️</div>
+          <h2>Citizen Identity Access</h2>
+          <p>Sign in to save document checklists & track your applications</p>
+        </div>
+
+        <!-- Auth Tabs (Sign In / Register) -->
+        <div class="auth-tabs">
+          <button id="tab-login" class="auth-tab-btn active" onclick="switchAuthTab('login')">Sign In</button>
+          <button id="tab-register" class="auth-tab-btn" onclick="switchAuthTab('register')">Create Account</button>
+        </div>
+
+        <div class="auth-body">
+
+          <!-- Demo Account Helper Banner -->
+          <div class="auth-demo-badge">
+            <div class="auth-demo-info">
+              <strong>Quick Test Account:</strong><br>
+              <span style="font-family: monospace;">demo@example.com</span> · <span style="font-family: monospace;">Password@123</span>
+            </div>
+            <button type="button" class="auth-demo-btn" onclick="fillDemoCredentials()">⚡ Auto Fill</button>
+          </div>
+
+          <!-- Alert message box -->
+          <div id="auth-alert" class="auth-alert"></div>
+
+          <!-- LOGIN FORM -->
+          <form id="form-login" onsubmit="handleLogin(event)">
+            <div class="auth-form-group">
+              <label for="login-email">Registered Email Address</label>
+              <div class="auth-input-wrapper">
+                <input type="email" id="login-email" placeholder="name@example.com" required autocomplete="email">
+              </div>
+            </div>
+
+            <div class="auth-form-group">
+              <label for="login-password">Password</label>
+              <div class="auth-input-wrapper">
+                <input type="password" id="login-password" placeholder="••••••••" required autocomplete="current-password">
+                <button type="button" class="auth-pwd-toggle" onclick="togglePasswordVisibility('login-password')">👁️</button>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 0.85rem;">
+              <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--text-muted);">
+                <input type="checkbox" id="remember-me" checked> Remember this device
+              </label>
+              <a href="#" onclick="alert('For this demonstration helper, you can use the standard demo credentials or create a new account.'); return false;" style="color: #2563eb; text-decoration: none;">Forgot password?</a>
+            </div>
+
+            <button type="submit" id="btn-login-submit" class="auth-submit-btn">Sign In to Citizen Portal</button>
+          </form>
+
+          <!-- REGISTER FORM (Hidden by default) -->
+          <form id="form-register" style="display: none;" onsubmit="handleRegister(event)">
+            <div class="auth-form-group">
+              <label for="reg-name">Full Legal Name</label>
+              <div class="auth-input-wrapper">
+                <input type="text" id="reg-name" placeholder="e.g. Ramesh Sharma" required autocomplete="name">
+              </div>
+            </div>
+
+            <div class="auth-form-group">
+              <label for="reg-email">Email Address</label>
+              <div class="auth-input-wrapper">
+                <input type="email" id="reg-email" placeholder="name@example.com" required autocomplete="email">
+              </div>
+            </div>
+
+            <div class="auth-form-group">
+              <label for="reg-password">Create Secure Password</label>
+              <div class="auth-input-wrapper">
+                <input type="password" id="reg-password" placeholder="At least 6 characters" required autocomplete="new-password">
+                <button type="button" class="auth-pwd-toggle" onclick="togglePasswordVisibility('reg-password')">👁️</button>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 20px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+              ℹ️ Your account allows you to securely track identity checklist progress across devices. We never share your details.
+            </div>
+
+            <button type="submit" id="btn-register-submit" class="auth-submit-btn">Create Citizen Account</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="brand-logo" style="color: white; margin-bottom: 12px;">
+          <div class="brand-icon">🇮🇳</div>
+          <span>DocProcess Helper</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #94a3b8;">Helping Indian citizens navigate government document applications smoothly.</p>
+      </div>
+      <div class="footer-col">
+        <h4 style="color: white; font-size: 0.95rem; margin-bottom: 12px;">Official Portals</h4>
+        <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+          <li><a href="https://myaadhaar.uidai.gov.in" target="_blank" rel="noopener" style="color: #cbd5e1; text-decoration: none;">UIDAI (Aadhaar) ↗</a></li>
+          <li><a href="https://eportal.incometax.gov.in" target="_blank" rel="noopener" style="color: #cbd5e1; text-decoration: none;">Income Tax (PAN) ↗</a></li>
+          <li><a href="https://passportindia.gov.in" target="_blank" rel="noopener" style="color: #cbd5e1; text-decoration: none;">Passport Seva (MEA) ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Aadhaar, PAN and Passport Process Helper. Free public guidance.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Tab switching
+    function switchAuthTab(tab) {
+      const loginForm = document.getElementById("form-login");
+      const registerForm = document.getElementById("form-register");
+      const loginTab = document.getElementById("tab-login");
+      const regTab = document.getElementById("tab-register");
+      const alertBox = document.getElementById("auth-alert");
+
+      alertBox.style.display = "none";
+
+      if (tab === "login") {
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+        loginTab.classList.add("active");
+        regTab.classList.remove("active");
+      } else {
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+        loginTab.classList.remove("active");
+        regTab.classList.add("active");
+      }
+    }
+
+    // Toggle Password visibility
+    function togglePasswordVisibility(fieldId) {
+      const field = document.getElementById(fieldId);
+      if (field) {
+        field.type = field.type === "password" ? "text" : "password";
+      }
+    }
+
+    // Auto-fill demo credentials
+    function fillDemoCredentials() {
+      switchAuthTab("login");
+      document.getElementById("login-email").value = "demo@example.com";
+      document.getElementById("login-password").value = "Password@123";
+      showAlert("Demo credentials populated! Click 'Sign In to Citizen Portal' below.", "success");
+    }
+
+    // Display Alert
+    function showAlert(message, type) {
+      const alertBox = document.getElementById("auth-alert");
+      alertBox.className = `auth-alert ${type}`;
+      alertBox.innerText = message;
+      alertBox.style.display = "block";
+    }
+
+    // Handle Login
+    async function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById("login-email").value.trim();
+      const password = document.getElementById("login-password").value;
+      const btn = document.getElementById("btn-login-submit");
+
+      btn.disabled = true;
+      btn.innerText = "Authenticating...";
+
+      try {
+        const resp = await fetch(`${API_BASE}/api/auth/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+        const res = await resp.json();
+
+        if (resp.ok && res.status === "success") {
+          localStorage.setItem("auth_token", res.data.token);
+          localStorage.setItem("auth_user", JSON.stringify(res.data.user));
+          showAlert("Login successful! Redirecting to Citizen Dashboard...", "success");
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 800);
+        } else {
+          showAlert(res.message || "Invalid credentials. Please verify your details.", "error");
+        }
+      } catch (err) {
+        showAlert("Cannot reach authentication server. Please check your connection.", "error");
+      } finally {
+        btn.disabled = false;
+        btn.innerText = "Sign In to Citizen Portal";
+      }
+    }
+
+    // Handle Register
+    async function handleRegister(e) {
+      e.preventDefault();
+      const full_name = document.getElementById("reg-name").value.trim();
+      const email = document.getElementById("reg-email").value.trim();
+      const password = document.getElementById("reg-password").value;
+      const btn = document.getElementById("btn-register-submit");
+
+      if (password.length < 6) {
+        showAlert("Password must be at least 6 characters long.", "error");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerText = "Creating Account...";
+
+      try {
+        const resp = await fetch(`${API_BASE}/api/auth/register`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, full_name, password })
+        });
+        const res = await resp.json();
+
+        if (resp.status === 201 && res.status === "success" || res.status === "success") {
+          localStorage.setItem("auth_token", res.data.token);
+          localStorage.setItem("auth_user", JSON.stringify(res.data.user));
+          showAlert("Account created successfully! Redirecting to Dashboard...", "success");
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 800);
+        } else {
+          showAlert(res.message || "Registration failed. Please check your information.", "error");
+        }
+      } catch (err) {
+        showAlert("Cannot reach server. Please check your connection.", "error");
+      } finally {
+        btn.disabled = false;
+        btn.innerText = "Create Citizen Account";
+      }
+    }
+
+    // If user is already logged in, redirect to dashboard
+    document.addEventListener("DOMContentLoaded", () => {
+      const token = localStorage.getItem("auth_token");
+      if (token) {
+        // Check if token is still valid
+        fetch(`${API_BASE}/api/auth/me`, {
+          headers: { "Authorization": `Bearer ${token}` }
+        }).then(r => {
+          if (r.ok) {
+            window.location.href = "dashboard.html";
+          }
+        }).catch(() => {});
+      }
+    });
+  </script>
+</body>
+</html>
