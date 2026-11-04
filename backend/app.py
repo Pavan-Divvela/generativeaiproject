@@ -95,5 +95,8 @@ def create_app():
 app = create_app()
 
 if __name__ == '__main__':
-    print(f"🚀 Starting Aadhaar, PAN & Passport Process Helper on http://127.0.0.1:{Config.PORT}")
-    app.run(host='0.0.0.0', port=Config.PORT, debug=Config.DEBUG)
+    # Only run the dev server if not invoked inside Streamlit runner thread
+    is_streamlit = "STREAMLIT_SERVER_PORT" in os.environ or any("streamlit" in arg.lower() for arg in sys.argv)
+    if not is_streamlit:
+        print(f"🚀 Starting Aadhaar, PAN & Passport Process Helper on http://127.0.0.1:{Config.PORT}")
+        app.run(host='0.0.0.0', port=Config.PORT, debug=Config.DEBUG, use_reloader=False)
