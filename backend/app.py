@@ -10,7 +10,7 @@ if str(backend_dir) not in sys.path:
     sys.path.insert(0, str(backend_dir))
 
 from config import Config
-from database.db import init_db
+from database.db import init_db, is_cloud_db, query_db
 from database.seed_data import seed_database
 from knowledge_base.ingest import ingest_all_documents
 from routes.services import services_bp
@@ -24,7 +24,16 @@ def create_app():
     CORS(app)
 
     # Ensure DB schema and demo user exist
-    if not Config.DATABASE_PATH.exists():
+    if is_cloud_db():
+        init_db()
+        try:
+            services_row = query_db("SELECT COUNT(*) as cnt FROM services", one=True)
+            if not services_row or services_row.get("cnt", 0) == 0:
+                print("Cloud database is empty. Seeding services and rules...")
+                seed_database()
+        except Exception as e:
+            print(f"Cloud DB check/seed notice: {e}")
+    elif not Config.DATABASE_PATH.exists():
         print("Database not found. Initializing and seeding...")
         seed_database()
     else:
