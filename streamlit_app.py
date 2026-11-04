@@ -8,9 +8,20 @@ from pathlib import Path
 
 # Add backend directory to sys.path
 root_dir = Path(__file__).resolve().parent
-backend_dir = root_dir / "backend"
+if (root_dir / "backend").exists():
+    backend_dir = root_dir / "backend"
+    project_root = root_dir
+elif (root_dir / "aadhaar-pan-passport-helper" / "backend").exists():
+    backend_dir = root_dir / "aadhaar-pan-passport-helper" / "backend"
+    project_root = root_dir / "aadhaar-pan-passport-helper"
+else:
+    backend_dir = root_dir
+    project_root = root_dir
+
 if str(backend_dir) not in sys.path:
     sys.path.insert(0, str(backend_dir))
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
 
 import streamlit as st
 from config import Config
