@@ -1,8 +1,8 @@
 // Main JS Utility for Aadhaar, PAN & Passport Helper
 
 // Detect API base URL
-const API_BASE = window.location.origin.includes(":5000") 
-  ? window.location.origin 
+const API_BASE = (window.location.origin && window.location.origin !== "null" && !window.location.protocol.startsWith("file"))
+  ? window.location.origin
   : "http://127.0.0.1:5000";
 
 document.addEventListener("DOMContentLoaded", () => {
