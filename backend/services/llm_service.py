@@ -23,13 +23,13 @@ def query_gemini_api(prompt: str, api_key: str) -> str:
         }],
         "generationConfig": {
             "temperature": 0.4,
-            "maxOutputTokens": 1000
+            "maxOutputTokens": 8192
         }
     }
 
     try:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{primary_model}:generateContent?key={api_key}"
-        resp = requests.post(url, headers=headers, json=payload, timeout=6)
+        resp = requests.post(url, headers=headers, json=payload, timeout=30)
         if resp.status_code == 200:
             data = resp.json()
             candidates = data.get("candidates", [])

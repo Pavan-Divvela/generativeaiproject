@@ -90,12 +90,12 @@ def _call_gemini(prompt: str) -> str:
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
             "temperature": 0.2,       # low temp for factual accuracy
-            "maxOutputTokens": 1200,
+            "maxOutputTokens": 8192,  # accommodate both thinking and response tokens
         },
     }
 
     try:
-        resp = requests.post(url, json=payload, timeout=20)
+        resp = requests.post(url, json=payload, timeout=30)
         if resp.status_code == 200:
             data = resp.json()
             candidates = data.get("candidates", [])
